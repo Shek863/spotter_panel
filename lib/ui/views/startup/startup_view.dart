@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
-import 'package:spotter_panel/ui/common/ui_helpers.dart';
 
 import '../../common/app_colors.dart';
 import 'startup_viewmodel.dart';

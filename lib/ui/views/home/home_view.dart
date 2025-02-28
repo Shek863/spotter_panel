@@ -37,9 +37,9 @@ class HomeView extends StackedView<HomeViewModel> {
                     child: Container(
                       decoration: BoxDecoration(
                         border: Border.all(color: kcPrimaryColor, width: 2),
-                        borderRadius: BorderRadius.all(Radius.circular(6))
+                        borderRadius: const BorderRadius.all(Radius.circular(6))
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 6),
+                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 6),
                       child: const Text(
                         'Issues',
                         style: TextStyle(
@@ -65,7 +65,7 @@ class HomeView extends StackedView<HomeViewModel> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: const Color(0xFF303136),
-                                    border: Border.all(color: kcLightGrey, width: 1),
+                                    border: boxBorder,
                                     borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
                                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
@@ -114,10 +114,10 @@ class HomeView extends StackedView<HomeViewModel> {
                             Expanded(
                               child: Container(
                                 decoration: BoxDecoration(
-                                    border: Border.all(color: kcLightGrey, width: 1),
-                                    borderRadius: BorderRadius.all(Radius.circular(18))
+                                    border: boxBorder,
+                                    borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
-                                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                                 child: const Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -144,10 +144,10 @@ class HomeView extends StackedView<HomeViewModel> {
                             Expanded(
                               child: Container(
                                 decoration: BoxDecoration(
-                                    border: Border.all(color: kcLightGrey, width: 1),
-                                    borderRadius: BorderRadius.all(Radius.circular(18))
+                                    border: boxBorder,
+                                    borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
-                                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                                 child: const Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -174,10 +174,10 @@ class HomeView extends StackedView<HomeViewModel> {
                             Expanded(
                               child: Container(
                                 decoration: BoxDecoration(
-                                    border: Border.all(color: kcLightGrey, width: 1),
-                                    borderRadius: BorderRadius.all(Radius.circular(18))
+                                    border: boxBorder,
+                                    borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
-                                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                                 child: const Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -209,10 +209,10 @@ class HomeView extends StackedView<HomeViewModel> {
                             Expanded(
                               child: Container(
                                 decoration: BoxDecoration(
-                                    border: Border.all(color: kcLightGrey, width: 1),
-                                    borderRadius: BorderRadius.all(Radius.circular(18))
+                                    border: Border.all(color: kcLightGrey, width: 0.5),
+                                    borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
-                                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                                 child: const Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -239,7 +239,7 @@ class HomeView extends StackedView<HomeViewModel> {
                             Expanded(
                               child: Container(
                                 decoration: BoxDecoration(
-                                    border: Border.all(color: kcLightGrey, width: 1),
+                                    border: boxBorder,
                                     borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
                                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
@@ -269,10 +269,10 @@ class HomeView extends StackedView<HomeViewModel> {
                             Expanded(
                               child: Container(
                                 decoration: BoxDecoration(
-                                    border: Border.all(color: kcLightGrey, width: 1),
-                                    borderRadius: BorderRadius.all(Radius.circular(18))
+                                    border: boxBorder,
+                                    borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
-                                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                                 child: const Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -306,13 +306,13 @@ class HomeView extends StackedView<HomeViewModel> {
                         Expanded(
                           child: Container(
                               decoration: BoxDecoration(
-                                  border: Border.all(color: kcLightGrey, width: 1),
+                                  border: boxBorder,
                                   borderRadius:
                                   const BorderRadius.horizontal(left: Radius.circular(10))
                               ),
                               padding: const
                               EdgeInsets.symmetric(horizontal: 24, vertical: 0),
-                              child: TextField(
+                              child: const TextField(
                                 decoration: InputDecoration(
                                     icon: Icon( Icons.search),
                                     iconColor: Colors.white,
@@ -343,7 +343,7 @@ class HomeView extends StackedView<HomeViewModel> {
                         ),
                         InkWell(
                           onTap: (){
-
+                            viewModel.find();
                           },
                           hoverColor: kcMediumGrey,
                           borderRadius: const BorderRadius.all(Radius.circular(6)),

@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import 'app_colors.dart';
+
 const double _tinySize = 5.0;
 const double _smallSize = 10.0;
 const double _mediumSize = 25.0;
@@ -18,6 +20,7 @@ const Widget verticalSpaceSmall = SizedBox(height: _smallSize);
 const Widget verticalSpaceMedium = SizedBox(height: _mediumSize);
 const Widget verticalSpaceLarge = SizedBox(height: _largeSize);
 const Widget verticalSpaceMassive = SizedBox(height: _massiveSize);
+Border boxBorder = Border.all(color: kcLightGrey, width: 0.5);
 
 Widget spacedDivider = const Column(
   children: <Widget>[

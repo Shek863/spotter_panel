@@ -1,5 +1,6 @@
 import 'package:spotter_panel/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:spotter_panel/ui/dialogs/info_alert/info_alert_dialog.dart';
+import 'package:spotter_panel/ui/views/console/console_view.dart';
 import 'package:spotter_panel/ui/views/home/home_view.dart';
 import 'package:spotter_panel/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -10,6 +11,7 @@ import 'package:stacked_services/stacked_services.dart';
   routes: [
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
+    MaterialRoute(page: ConsoleView),
     // @stacked-route
   ],
   dependencies: [
