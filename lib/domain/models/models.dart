@@ -49,4 +49,14 @@ class SpotEntry {
       'dateTime': dateTime.toString()
     };
   }
+
+
+  /// Convert Model [SpotEntry] object to Map
+  static SpotEntry fromJson(Map<String, dynamic> data) {
+    return SpotEntry.reload(
+      data['message'],
+      level: data['level'],
+      tag: data['tag'],
+    dateTime:  data['dateTime']);
+  }
 }

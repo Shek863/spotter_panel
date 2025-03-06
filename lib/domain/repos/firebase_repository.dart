@@ -22,16 +22,30 @@ class FirebaseRepository {
   /// initialise database instance from App environment
   /// (dev or prod)
   final _dbEnvInstance = FirebaseFirestore.instance.collection("spotter")
-          .doc("data").collection("devices");
+          .doc("data");
 
 
   /// register FCMToken Notification
   ///
   Future listenSpots(
       String id, Function(List<SpotEntry>) listen) async {
-    final reference = _dbEnvInstance.doc(id).collection("spots");
-    reference.snapshots().listen((snapshot) {
+    _dbEnvInstance.collection("devices").doc(id)
+        .collection("spots").snapshots().listen((snapshot) {
       listen(snapshot.docs.map((e) => SpotEntry.fromJson(e.data()) ).toList());
+    });
+  }
+
+  /// register FCMToken Notification
+  ///
+  Future listenDevices( Function(List<Map<String, dynamic>>) listen) async {
+    _dbEnvInstance.collection("devices").snapshots().listen((snapshot) {
+      listen(snapshot.docs.map((e) => e.data() ).toList());
+    });
+  }
+
+  Future listenData( Function(Map<String, dynamic>?) listen ) async {
+    _dbEnvInstance.snapshots().listen((snapshot) {
+      listen(snapshot.data());
     });
   }
 

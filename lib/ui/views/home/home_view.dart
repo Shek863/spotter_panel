@@ -79,8 +79,9 @@ class HomeView extends StackedView<HomeViewModel> {
                                          children: [
                                            SvgPicture.asset("assets/svg/ic_category.svg"),
                                            horizontalSpaceSmall,
-                                           const Text(
-                                             'kkiapay_pos',
+                                            Text(
+                                             viewModel.appLocalService.dashBoardData['app_name'],
+                                       //      'kkiapay_pos',
                                              style: TextStyle(
                                                  fontSize: 28,
                                                  color: kcPrimaryColor,
@@ -94,8 +95,9 @@ class HomeView extends StackedView<HomeViewModel> {
                                      ],
                                    ),
                                     verticalSpaceSmall,
-                                    const Text(
-                                      'App short description',
+                                     Text(
+                                      viewModel.appLocalService.dashBoardData['app_description'],
+                                     // 'App short description',
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.white,
@@ -118,10 +120,10 @@ class HomeView extends StackedView<HomeViewModel> {
                                     borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
                                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                child: const Column(
+                                child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                   const  Text(
                                       'Total devices',
                                       style: TextStyle(
                                         fontSize: 14,
@@ -130,8 +132,9 @@ class HomeView extends StackedView<HomeViewModel> {
                                     ),
                                     verticalSpaceSmall,
                                     Text(
-                                      '17,000',
-                                      style: TextStyle(
+                                      viewModel.appLocalService.dashBoardData['total_devices'],
+                                     /// '17,000',
+                                      style: const TextStyle(
                                         fontSize: 28,
                                         color: Colors.white,
                                       ),
@@ -148,10 +151,10 @@ class HomeView extends StackedView<HomeViewModel> {
                                     borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
                                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                child: const Column(
+                                child:  Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Actif device',
                                       style: TextStyle(
                                         fontSize: 14,
@@ -160,8 +163,9 @@ class HomeView extends StackedView<HomeViewModel> {
                                     ),
                                     verticalSpaceSmall,
                                     Text(
-                                      '1,200',
-                                      style: TextStyle(
+                                      viewModel.appLocalService.dashBoardData['total_active_devices'],
+                                     // '1,200',
+                                      style: const TextStyle(
                                         fontSize: 28,
                                         color: Colors.white,
                                       ),
@@ -178,10 +182,10 @@ class HomeView extends StackedView<HomeViewModel> {
                                     borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
                                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                child: const Column(
+                                child:  Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Logs size',
                                       style: TextStyle(
                                         fontSize: 14,
@@ -190,8 +194,9 @@ class HomeView extends StackedView<HomeViewModel> {
                                     ),
                                     verticalSpaceSmall,
                                     Text(
-                                      '30,000',
-                                      style: TextStyle(
+                                      viewModel.appLocalService.dashBoardData['spots_size'],
+                                     // '30,000',
+                                      style: const TextStyle(
                                         fontSize: 28,
                                         color: Colors.white,
                                       ),
@@ -213,10 +218,10 @@ class HomeView extends StackedView<HomeViewModel> {
                                     borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
                                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                child: const Column(
+                                child:  Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                  const   Text(
                                       'Allertes',
                                       style: TextStyle(
                                         fontSize: 14,
@@ -225,8 +230,9 @@ class HomeView extends StackedView<HomeViewModel> {
                                     ),
                                     verticalSpaceSmall,
                                     Text(
-                                      '442',
-                                      style: TextStyle(
+                                      viewModel.appLocalService.dashBoardData['total_error'],
+                                  //    '442',
+                                      style: const TextStyle(
                                         fontSize: 28,
                                         color: Colors.white,
                                       ),
@@ -243,10 +249,10 @@ class HomeView extends StackedView<HomeViewModel> {
                                     borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
                                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                child: const Column(
+                                child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Session duration Moy.',
                                       style: TextStyle(
                                         fontSize: 14,
@@ -255,8 +261,8 @@ class HomeView extends StackedView<HomeViewModel> {
                                     ),
                                     verticalSpaceSmall,
                                     Text(
-                                      '3,700 s',
-                                      style: TextStyle(
+                                      '${viewModel.appLocalService.dashBoardData['session_duration_moy']} s',
+                                      style: const TextStyle(
                                         fontSize: 28,
                                         color: Colors.white,
                                       ),
@@ -273,10 +279,10 @@ class HomeView extends StackedView<HomeViewModel> {
                                     borderRadius: const BorderRadius.all(Radius.circular(18))
                                 ),
                                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                child: const Column(
+                                child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'App Health',
                                       style: TextStyle(
                                         fontSize: 14,
@@ -285,8 +291,9 @@ class HomeView extends StackedView<HomeViewModel> {
                                     ),
                                     verticalSpaceSmall,
                                     Text(
-                                      '442',
-                                      style: TextStyle(
+                                      viewModel.appLocalService.dashBoardData['app_health'],
+                                      //'442',
+                                      style: const TextStyle(
                                         fontSize: 28,
                                         color: Colors.white,
                                       ),
@@ -313,6 +320,10 @@ class HomeView extends StackedView<HomeViewModel> {
                               padding: const
                               EdgeInsets.symmetric(horizontal: 24, vertical: 0),
                               child: const TextField(
+                                style: TextStyle(
+                                    color: kcVeryLightGrey,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w200),
                                 decoration: InputDecoration(
                                     icon: Icon( Icons.search),
                                     iconColor: Colors.white,
