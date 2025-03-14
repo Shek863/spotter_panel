@@ -24,8 +24,6 @@ class FirebaseRepository {
   final _dbEnvInstance = FirebaseFirestore.instance.collection("spotter")
           .doc("data");
 
-
-  /// register FCMToken Notification
   ///
   Future listenSpots(
       String id, Function(List<SpotEntry>) listen) async {
@@ -35,11 +33,23 @@ class FirebaseRepository {
     });
   }
 
-  /// register FCMToken Notification
   ///
   Future listenDevices( Function(List<Map<String, dynamic>>) listen) async {
     _dbEnvInstance.collection("devices").snapshots().listen((snapshot) {
       listen(snapshot.docs.map((e) => e.data() ).toList());
+    });
+  }
+
+  ///
+  Future findDevice(String id, Function(String) listen) async {
+    await listenDevices( (devices) {
+      final filter = devices.where((element) =>
+      element['id'].toString().contains(id)
+          || element['custom_id'].toString().contains(id)
+      ).toList();
+      if(filter.length == 1){
+        listen(filter.first['custom_id']);
+      }
     });
   }
 
@@ -48,6 +58,5 @@ class FirebaseRepository {
       listen(snapshot.data());
     });
   }
-
 
 }

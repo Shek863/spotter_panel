@@ -96,7 +96,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                    ),
                                     verticalSpaceSmall,
                                      Text(
-                                      viewModel.appLocalService.dashBoardData['app_description'],
+                                      viewModel.appLocalService.dashBoardData['app_package_id'],
                                      // 'App short description',
                                       style: TextStyle(
                                         fontSize: 14,
@@ -319,12 +319,13 @@ class HomeView extends StackedView<HomeViewModel> {
                               ),
                               padding: const
                               EdgeInsets.symmetric(horizontal: 24, vertical: 0),
-                              child: const TextField(
-                                style: TextStyle(
+                              child: TextField(
+                                controller: viewModel.findController,
+                                style: const TextStyle(
                                     color: kcVeryLightGrey,
                                     fontSize: 18,
                                     fontWeight: FontWeight.w200),
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     icon: Icon( Icons.search),
                                     iconColor: Colors.white,
                                     enabledBorder: OutlineInputBorder(
@@ -354,7 +355,7 @@ class HomeView extends StackedView<HomeViewModel> {
                         ),
                         InkWell(
                           onTap: (){
-                            viewModel.find();
+                            viewModel.appLocalService.find(viewModel.findController.text);
                           },
                           hoverColor: kcMediumGrey,
                           borderRadius: const BorderRadius.all(Radius.circular(6)),

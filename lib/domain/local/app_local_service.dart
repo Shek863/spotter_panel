@@ -1,7 +1,13 @@
+import 'package:spotter_panel/app/app.router.dart';
 import 'package:spotter_panel/domain/repos/firebase_repository.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
+
+import '../../app/app.locator.dart';
 
 class AppLocalService with ListenableServiceMixin {
+  final _navigationService = locator<NavigationService>();
+
   //1
   AppLocalService() {
     //3
@@ -13,7 +19,7 @@ class AppLocalService with ListenableServiceMixin {
   ReactiveValue<Map<String, dynamic>>(
       {
         'app_name': "",
-        'app_description': "",
+        'app_package_id': "",
         'total_devices':"0,000",
         'total_active_devices':"0,00",
         'spots_size':"000",
@@ -30,8 +36,20 @@ class AppLocalService with ListenableServiceMixin {
 
     FirebaseRepository().listenData((p0){
       _dashBoardData.value['app_name'] = p0?['app_name'];
-      _dashBoardData.value['app_description'] = p0?['app_description'];
+      _dashBoardData.value['app_package_id'] = p0?['app_package_id'];
       notifyListeners();
+    });
+  }
+
+
+  //3
+  final ReactiveValue<String> _selectedDevice = ReactiveValue<String>("");
+  String get selectedDevice => _selectedDevice.value;
+  void find(id) {
+    FirebaseRepository().findDevice(id,(p0){
+      _selectedDevice.value = p0;
+      notifyListeners();
+      _navigationService.replaceWithConsoleView();
     });
   }
 
